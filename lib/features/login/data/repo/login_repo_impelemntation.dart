@@ -20,6 +20,7 @@ class LoginRepoImplementation implements LoginRepo {
     );
     var body =    jsonDecode( result.body);
     if(body["status"]){
+
       return  right(UserModel(id: body["data"]["id"], name: body["data"]["name"], email: body["data"]["email"], phone: body["data"]["phone"], image: body["data"]["image"], points: body["data"]["points"], credit: body["data"]["credit"], token: body["data"]["token"]));
     }else{
       return left(ApiFailure(message: body["message"]));
