@@ -4,6 +4,8 @@ import 'package:mr_candy_cycle_8/features/login/data/repo/login_repo_impelemntat
 import 'package:mr_candy_cycle_8/features/login/presentation/controller/login_cubit.dart';
 import 'package:mr_candy_cycle_8/features/login/presentation/controller/login_states.dart';
 
+import '../../../register/presentation/view/register_screen.dart';
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -59,7 +61,7 @@ class _LoginBodyState extends State<LoginBody> {
 
               state is LoginLoadingState ?
 
-            Center(child: CircularProgressIndicator())
+            const Center(child: CircularProgressIndicator())
             :
               MaterialButton(
               color: Colors.blue,
@@ -71,7 +73,15 @@ class _LoginBodyState extends State<LoginBody> {
                 ;
               }, child: Text("Login"),);
           },
-        )
+        ),
+
+
+        TextButton(onPressed: ( ) {
+
+          Navigator.push(context, MaterialPageRoute(builder: (c) {
+            return const RegisterScreen();
+          }));
+        } , child: Text("انشاء حساب"))
 
       ],
     );
