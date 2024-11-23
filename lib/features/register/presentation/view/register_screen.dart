@@ -2,13 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:mr_candy_cycle_8/core/assets/png_images.dart';
-import 'package:mr_candy_cycle_8/features/login/data/repo/login_repo_impelemntation.dart';
-import 'package:mr_candy_cycle_8/features/login/presentation/controller/login_cubit.dart';
-import 'package:mr_candy_cycle_8/features/login/presentation/controller/login_states.dart';
+import 'package:mr_candy_cycle_8/features/home/presentation/views/home_bottom_screen.dart';
 import 'package:mr_candy_cycle_8/features/register/data/models/register_model.dart';
 
+import '../../../../generated/assets.dart';
 import '../../data/repo/register_repo_implee.dart';
 import '../controller/register_cubit.dart';
 import '../controller/register_states.dart';
@@ -59,7 +56,7 @@ class _RegisterBodyState extends State<RegisterBody> {
               child:
 
 
-              registerCubit.image == null ? Image.asset(PngImages.photoFrame,
+              registerCubit.image == null ? Image.asset(Assets.imagesFav,
                 height: 90,
                 width: 90,
               ) :Center(
@@ -109,6 +106,8 @@ class _RegisterBodyState extends State<RegisterBody> {
               ScaffoldMessenger.of(context)
                   .showSnackBar(SnackBar(content: Text(state.errorMessage)));
             } else if (state is RegisterSuccessState) {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (C)=>const HomeBottomScreen()));
+
               ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text("تم انشاء الحساب بنجاح")));
             }

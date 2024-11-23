@@ -4,6 +4,7 @@ import 'package:mr_candy_cycle_8/features/login/data/repo/login_repo_impelemntat
 import 'package:mr_candy_cycle_8/features/login/presentation/controller/login_cubit.dart';
 import 'package:mr_candy_cycle_8/features/login/presentation/controller/login_states.dart';
 
+import '../../../home/presentation/views/home_bottom_screen.dart';
 import '../../../register/presentation/view/register_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -52,6 +53,8 @@ class _LoginBodyState extends State<LoginBody> {
             if(state is LoginFailureState){
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.errorMessage)));
             }else if(state is  LoginSuccessState ) {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (C)=>const HomeBottomScreen()));
+
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("تم تسجيل الدخول بنجاح")));
 
             }
