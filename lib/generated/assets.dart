@@ -3,6 +3,8 @@ class Assets {
   Assets._();
 
   static const String imagesActiveCart = 'assets/images/active_cart.svg';
+  static const String imagesBanner = 'assets/images/banner.png';
+  static const String imagesCandyLog = 'assets/images/candy_log.png';
   static const String imagesCart = 'assets/images/cart.svg';
   static const String imagesFav = 'assets/images/fav.svg';
   static const String imagesHomeActive = 'assets/images/home_active.svg';
