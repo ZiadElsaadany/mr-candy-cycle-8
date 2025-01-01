@@ -4,5 +4,6 @@ class Endpoints{
   static const String register ="register";
 
   static const String banners ="banners";
+  static const String categories ="categories";
 
 }

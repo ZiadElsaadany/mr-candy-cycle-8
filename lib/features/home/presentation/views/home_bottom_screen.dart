@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:mr_candy_cycle_8/core/utils/colors.dart';
 import 'package:mr_candy_cycle_8/features/main/data/repo/main_repo_implementation.dart';
 import 'package:mr_candy_cycle_8/features/main/presentation/controller/banners_cubit.dart';
+import 'package:mr_candy_cycle_8/features/main/presentation/controller/categories_cubti.dart';
 import 'package:mr_candy_cycle_8/features/main/presentation/view/main_screen.dart';
 
 import '../../../../generated/assets.dart';
@@ -20,7 +21,8 @@ class _HomeBottomScreenState extends State<HomeBottomScreen> {
   List<Widget> screens = [
   MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_)=>BannersCubit(homeRepo: HomeRepoImplementation()))
+        BlocProvider(create: (_)=>BannersCubit(homeRepo: HomeRepoImplementation())),
+        BlocProvider(create: (_)=>CategoriesCubit(homeRepo: HomeRepoImplementation()))
       ],
       child: MainScreen()),
     Container(
