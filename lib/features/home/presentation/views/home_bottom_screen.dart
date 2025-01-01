@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mr_candy_cycle_8/core/utils/colors.dart';
+import 'package:mr_candy_cycle_8/features/main/data/repo/main_repo_implementation.dart';
+import 'package:mr_candy_cycle_8/features/main/presentation/controller/banners_cubit.dart';
 import 'package:mr_candy_cycle_8/features/main/presentation/view/main_screen.dart';
 
 import '../../../../generated/assets.dart';
@@ -15,7 +18,11 @@ class HomeBottomScreen extends StatefulWidget {
 class _HomeBottomScreenState extends State<HomeBottomScreen> {
   int currentIndex = 0;
   List<Widget> screens = [
-  MainScreen(),
+  MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_)=>BannersCubit(homeRepo: HomeRepoImplementation()))
+      ],
+      child: MainScreen()),
     Container(
       width: 200,
       height: 200,
